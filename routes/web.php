@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controller\InicioController;
 use App\Http\Controller\UsuarioController;
+use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\MunicipioController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,5 +45,9 @@ Route::put('/products/update/{usuario}', [UsuarioController::class, 'update']);
 Route::delete('/products/destroy/{id}', [UsuarioController::class, 'destroy']);
 
 Auth::routes();
+
+//Departamentos y Municipios
+Route::resource('departamentos', DepartamentoController::class);
+Route::resource('municipios', MunicipioController::class);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
